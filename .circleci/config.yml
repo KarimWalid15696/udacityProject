@@ -45,9 +45,6 @@ jobs:
           command: |
             cd frontend
             npm i
-            npm update
-            npm build
-            npm audit fix
             npm run build
       - save_cache:
           paths: [frontend/node_modules]
@@ -65,9 +62,6 @@ jobs:
           command: |
              cd backend
              npm i
-             npm update
-             npm build
-             npm audit fix
              npm run build
       - save_cache:
           paths: [backend/node_modules]
@@ -77,9 +71,10 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run: cd frontend
+      
       - restore_cache:
           keys: [frotnend-build]
+      - run: cd frontend
       - run: npm run test
                 
   test-backend:
