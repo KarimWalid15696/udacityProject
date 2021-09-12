@@ -77,7 +77,7 @@ jobs:
       - checkout
       - restore_cache:
           keys: [frotnend-build]
-      -run: npm run test
+      - run: npm run test
                 
   test-backend:
     docker:
