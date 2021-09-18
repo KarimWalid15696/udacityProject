@@ -78,6 +78,7 @@ jobs:
       - run: 
           command: |
               cd frontend 
+              npm update
               npm run test 
 
                 
@@ -91,6 +92,7 @@ jobs:
       - run: 
           command: |
               cd backend 
+              npm update
               npm run test 
   scan-frontend:
     docker:
@@ -101,7 +103,7 @@ jobs:
           keys: [frontend-build]
       - run: 
           command: |
-              cd frontend 
+              cd frontend  
               npm audit --audit-level=critical
 
   scan-backend:
